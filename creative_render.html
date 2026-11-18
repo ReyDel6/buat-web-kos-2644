@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>buat-web-kos-2644 — Render Frame</title>
+<style>
+  html,body{margin:0;width:540px;height:960px;overflow:hidden;background:#090514;color:#fff;font-family:Arial,sans-serif}
+  #v{position:absolute;inset:0;width:540px;height:960px;object-fit:cover;transition:transform .1s linear}
+  #shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),transparent 40%,rgba(0,0,0,.75))}
+  #badge,#sub,#cap,#progress,#count{position:absolute;z-index:2;text-align:center;left:28px;right:28px}
+  #badge{top:54px;font-size:18px;font-weight:800;color:#fde68a;letter-spacing:.08em}
+  #count{top:88px;font-size:13px;opacity:.72}
+  #sub{top:392px;font-size:38px;font-weight:900;line-height:1.15;color:#facc15;text-shadow:0 4px 16px #000}
+  #cap{bottom:96px;font-size:17px;opacity:.86;line-height:1.4}
+  #bar{position:absolute;z-index:3;left:0;bottom:0;height:7px;background:#a855f7;width:0}
+</style></head>
+<body>
+  <img id="v" alt="Scene visual">
+  <div id="shade"></div>
+  <div id="badge"></div><div id="count"></div><div id="sub"></div><div id="cap"></div><div id="bar"></div>
+  <script>
+    const data = {"name":"buat-web-kos-2644","scenes":[{"title":"Scene 1 • Viral Hook 3 Detik","badge":"🔥 VIRAL HOOK","duration":"0:00 - 0:03","visual":"https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&q=80","captionVisual":"Pintu kamar kos estetik terbuka memperlihatkan interior modern","hookText":"Cari kosan estetik, kamar mandi dalam, & WiFi ngebut di bawah 2 juta? Stop scroll!","subtitles":["STOP SCROLL DULU!","KOSAN ESTETIK MEWAH...","DI GRIYA KOST HARMONI!"],"vo":"ElevenLabs AI Voice: \"Stop scroll dulu! Masih pusing cari kosan nyaman yang gak bikin kantong jebol? Cek kosan estetik di Griya Kost Harmoni!\"","sfx":"Whoosh transition + Lo-Fi Chill Beat"},{"title":"Scene 2 • Kamar Fully Furnished & AC","badge":"🛏️ FULLY FURNISHED","duration":"0:03 - 0:10","visual":"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80","captionVisual":"Kamar tidur rapi dengan AC, springbed empuk, meja kerja ergonomis","hookText":"Tinggal bawa koper, AC dingin, kamar mandi dalam, dan water heater.","subtitles":["TINGGAL BAWA KOPER","AC DINGIN + KAMAR MANDI DALAM","WATER HEATER READY"],"vo":"ElevenLabs AI Voice: \"Semua kamar fully furnished, kasur springbed empuk, AC dingin, kamar mandi dalam, plus water heater yang bikin mandi selalu rileks.\"","sfx":"Door Chime + Lo-Fi Guitar"},{"title":"Scene 3 • Fasilitas Bersama & WiFi Kencang","badge":"⚡ FASILITAS LENGKAP","duration":"0:10 - 0:18","visual":"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80","captionVisual":"Lobby modern, dapur bersama bersih, dan area rooftop santai","hookText":"WiFi kencang 100 Mbps, dapur bersama, rooftop santai, & CCTV 24 jam.","subtitles":["WIFI NGEBUT 100 MBPS","DAPUR & KULKAS BERSAMA","CCTV & SECURITY 24 JAM"],"vo":"ElevenLabs AI Voice: \"Buat yang WFH atau nugas, WiFi-nya 100 Mbps anti-buffering! Ada dapur bersama, kulkas, rooftop, dan keamanan CCTV 24 jam.\"","sfx":"Camera Pan Whoosh + Ambient Synth"},{"title":"Scene 4 • Lokasi Strategis & Promo Sewa","badge":"📍 STRATEGIS & PROMO","duration":"0:18 - 0:24","visual":"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80","captionVisual":"Ruang tamu komunal dengan cahaya matahari sore yang estetik","hookText":"Hanya 5 menit ke kampus & stasiun. Diskon sewa bulan pertama!","subtitles":["5 MENIT KE KAMPUS/STASIUN","BEBAS BIAYA SAMPAH & AIR","DISKON SEWA BULAN PERTAMA!"],"vo":"ElevenLabs AI Voice: \"Lokasinya super strategis cuma 5 menit ke kampus dan stasiun. Khusus booking bulan ini ada potongan sewa langsung!\"","sfx":"Chime Ding + Sparkle"},{"title":"Scene 5 • Call to Action (Keyword Otomatis)","badge":"⚡ AUTO-REPLY DM","duration":"0:24 - 0:30","visual":"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80","captionVisual":"Handphone menampilkan notifikasi survei lokasi dan booking langsung","hookText":"Komen \"KOS\" di bawah sekarang buat jadwalkan survei gratis & cek kamar kosong!","subtitles":["KOMEN \"KOS\" SEKARANG!","JADWAL SURVEI GRATIS","CEK KAMAR TERSEDIA!"],"vo":"ElevenLabs AI Voice: \"Ketik kata KOS di kolom komentar sekarang, jadwal survei gratis dan video tour lengkap langsung kita kirim ke DM kamu!\"","sfx":"Pop notification + Upbeat Outro Beat"}]};
+    const q = new URLSearchParams(location.search);
+    const i = Math.max(0, Math.min(data.scenes.length - 1, Number(q.get('scene')) || 0));
+    const p = Math.max(0, Math.min(1, Number(q.get('p')) || 0));
+    const s = data.scenes[i];
+    const img = document.getElementById('v');
+    img.src = s.visual;
+    document.getElementById('badge').textContent = s.badge;
+    document.getElementById('count').textContent = s.duration + ' · ' + s.title;
+    document.getElementById('sub').textContent = s.subtitles[Math.min(s.subtitles.length - 1, Math.floor(p * s.subtitles.length))];
+    document.getElementById('cap').textContent = s.captionVisual;
+    document.getElementById('bar').style.width = (p * 100).toFixed(2) + '%';
+    img.onload = img.onerror = () => { img.style.transform = 'scale(' + (1 + p * 0.08).toFixed(3) + ')'; window.__ready = true; };
+    setTimeout(() => { window.__ready = true; }, 4000);
+  </script>
+</body></html>

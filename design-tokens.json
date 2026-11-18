@@ -1,0 +1,16 @@
+{
+  "theme": "modern-boarding-house",
+  "palette": {
+    "primary": "#2563EB",
+    "primaryHover": "#1D4ED8",
+    "background": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "text": "#0F172A",
+    "textMuted": "#64748B",
+    "accent": "#F59E0B"
+  },
+  "typography": {
+    "fontHeading": "Plus Jakarta Sans",
+    "fontBody": "Inter"
+  }
+}

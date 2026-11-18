@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Griya Kost Harmoni — Kost Eksklusif & Modern Dekat Kampus</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7',
+                        primaryHover: '#0369a1',
+                        accent: '#f59e0b',
+                        surface: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-nav border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-sky-500/25 group-hover:scale-105 transition-transform">
+                    🏡
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-black tracking-tight text-white leading-none">Griya Kost <span class="text-sky-400">Harmoni</span></span>
+                    <span class="text-[11px] font-semibold text-slate-400 tracking-wider uppercase mt-1">Kost Eksklusif Putra &amp; Putri</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-300">
+                <a href="#kamar" class="hover:text-sky-400 transition-colors">Pilihan Kamar</a>
+                <a href="#fasilitas" class="hover:text-sky-400 transition-colors">Fasilitas</a>
+                <a href="#kalkulator-sewa" class="hover:text-sky-400 transition-colors flex items-center gap-1.5 text-sky-400">
+                    <span>🧮</span> Kalkulator Sewa
+                </a>
+                <a href="#lokasi" class="hover:text-sky-400 transition-colors">Lokasi &amp; Akses</a>
+                <a href="#testimoni" class="hover:text-sky-400 transition-colors">Testimoni</a>
+                <a href="#faq" class="hover:text-sky-400 transition-colors">FAQ</a>
+            </nav>
+
+            <!-- CTA Buttons -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://wa.me/6281234567890?text=Halo%20Griya%20Kost%20Harmoni,%20saya%20mau%20tanya%20ketersediaan%20kamar%20kos" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-950 font-bold text-sm shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/35 transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <span>💬</span>
+                    <span>Chat WhatsApp</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-toggle-btn" onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 bg-slate-900/98 border-b border-slate-800 space-y-3">
+            <a href="#kamar" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-semibold hover:text-sky-400">🛏️ Pilihan Kamar</a>
+            <a href="#fasilitas" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-semibold hover:text-sky-400">✨ Fasilitas Kost</a>
+            <a href="#kalkulator-sewa" onclick="toggleMobileMenu()" class="block py-2 text-sky-400 font-bold">🧮 Kalkulator Estimasi Sewa</a>
+            <a href="#lokasi" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-semibold hover:text-sky-400">📍 Lokasi &amp; Akses Kampus</a>
+            <a href="#testimoni" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-semibold hover:text-sky-400">⭐ Testimoni Penghuni</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 font-semibold hover:text-sky-400">❓ Tanya Jawab (FAQ)</a>
+            <a href="https://wa.me/6281234567890?text=Halo%20Griya%20Kost%20Harmoni,%20saya%20mau%20tanya%20ketersediaan%20kamar" target="_blank" class="block w-full text-center py-3 bg-emerald-500 text-slate-950 font-bold rounded-xl mt-3 shadow-lg">
+                💬 Hubungi Pengelola via WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-12 pb-24 overflow-hidden border-b border-slate-800/80">
+            <!-- Background Glow Elements -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+            <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold tracking-wide uppercase shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>Kamar Siap Huni • Sisa 3 Unit Kosong</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
+                            Kost Eksklusif, Tenang &amp; Strategis <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-indigo-400">Hanya 3 Menit ke Kampus!</span>
+                        </h1>
+
+                        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                            Hunian nyaman, bersih, dan aman berfasilitas hotel: Full AC Daikin, Kamar Mandi Dalam Air Hangat, Wi-Fi 100 Mbps, Dapur Bersama, Kartu Akses &amp; CCTV 24 Jam. Tinggal bawa koper!
+                        </p>
+
+                        <!-- Key Selling Points Badges -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 max-w-xl mx-auto lg:mx-0">
+                            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-2.5">
+                                <span class="text-lg">📶</span>
+                                <div class="text-left leading-tight">
+                                    <div class="text-xs font-bold text-white">WiFi 100 Mbps</div>
+                                    <div class="text-[10px] text-slate-400">Fiber Optic Anti-Lag</div>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-2.5">
+                                <span class="text-lg">❄️</span>
+                                <div class="text-left leading-tight">
+                                    <div class="text-xs font-bold text-white">Full AC Dingin</div>
+                                    <div class="text-[10px] text-slate-400">Hemat Listrik &amp; Sunyi</div>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-2.5 col-span-2 sm:col-span-1">
+                                <span class="text-lg">🛡️</span>
+                                <div class="text-left leading-tight">
+                                    <div class="text-xs font-bold text-white">Akses 24 Jam</div>
+                                    <div class="text-[10px] text-slate-400">Smart Lock &amp; CCTV</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Actions -->
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#kamar" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-extrabold text-base shadow-xl shadow-sky-500/25 transition-all text-center flex items-center justify-center gap-2.5">
+                                <span>🛏️</span>
+                                <span>Lihat Pilihan Kamar</span>
+                            </a>
+                            <a href="#kalkulator-sewa" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 text-slate-200 font-bold text-base transition-all text-center flex items-center justify-center gap-2">
+                                <span>🧮</span>
+                                <span>Hitung Estimasi Sewa</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Visual Card -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl group">
+                            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=900&q=80" alt="Kamar Kost Harmoni Modern" class="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                            
+                            <!-- Floating Tag Badge -->
+                            <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-700 text-xs font-bold text-white flex items-center gap-1.5 shadow-lg">
+                                <span>⭐</span> 4.9/5 dari 85+ Penghuni Puas
+                            </div>
+
+                            <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                                <span class="text-xs font-bold text-sky-400 bg-sky-950/80 px-2.5 py-1 rounded-md border border-sky-500/30">Tipe Deluxe AC</span>
+                                <h3 class="text-2xl font-black">Kamar Nyaman Siap Huni</h3>
+                                <p class="text-xs text-slate-300">Springbed empuk, meja kerja ergonomis, smart door lock, dan jendela sirkulasi luas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Pilihan Tipe Kamar & Harga -->
+        <section id="kamar" class="py-20 bg-slate-900/60 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="inline-block bg-sky-500/10 text-sky-400 border border-sky-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                        Pilihan Unit Kamar
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">Tipe Kamar Sesuai Kebutuhan &amp; Budget</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2">Seluruh kamar berdesain minimalis modern dengan pencahayaan hangat dan ventilasi segar.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Kamar 1: Standar Cozy -->
+                    <div class="rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 overflow-hidden shadow-xl hover:shadow-2xl transition-all flex flex-col group">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=700&q=80" alt="Kamar Standar Cozy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-slate-900/90 text-xs font-bold text-amber-400 px-3 py-1 rounded-lg border border-slate-700">Tersedia 1 Kamar</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-xl font-black text-white">Kamar Standar Cozy</h3>
+                                <p class="text-xs text-slate-400 mt-1">Ukuran 3x3.5m • Cocok untuk mahasiswa yang mencari hunian tenang dan hemat.</p>
+                                
+                                <div class="mt-4 flex items-baseline gap-1">
+                                    <span class="text-2xl font-black text-amber-400">Rp 850.000</span>
+                                    <span class="text-xs text-slate-400">/ bulan</span>
+                                </div>
+
+                                <ul class="mt-4 space-y-2 text-xs text-slate-300">
+                                    <li class="flex items-center gap-2">✓ Kasur Springbed Single + Bantal &amp; Sprei</li>
+                                    <li class="flex items-center gap-2">✓ Meja Belajar &amp; Kursi Kerja</li>
+                                    <li class="flex items-center gap-2">✓ Lemari Pakaian 2 Pintu</li>
+                                    <li class="flex items-center gap-2">✓ Kipas Angin Dinding + Ventilasi Luas</li>
+                                    <li class="flex items-center gap-2">✓ Kamar Mandi Luar Bersih (1:2 Kamar)</li>
+                                    <li class="flex items-center gap-2">✓ Gratis WiFi Fiber 100 Mbps</li>
+                                </ul>
+                            </div>
+
+                            <a href="https://wa.me/6281234567890?text=Halo%20Griya%20Kost%20Harmoni,%20saya%20tertarik%20dengan%20Kamar%20Standar%20Cozy%20(Rp%20850.000/bln).%20Boleh%20survei%20lokasi?" target="_blank" class="w-full py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold rounded-xl text-center text-sm transition-all flex items-center justify-center gap-2">
+                                <span>💬</span> Tanya Kamar Standar
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kamar 2: Deluxe AC (Most Popular) -->
+                    <div class="rounded-3xl bg-slate-900 border-2 border-sky-500 overflow-hidden shadow-2xl transition-all flex flex-col relative group">
+                        <div class="absolute top-0 right-0 bg-gradient-to-l from-sky-500 to-indigo-600 text-white text-[11px] font-black uppercase px-4 py-1.5 rounded-bl-2xl z-20 shadow-md">
+                            🔥 Paling Favorit
+                        </div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=700&q=80" alt="Kamar Deluxe AC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-slate-900/90 text-xs font-bold text-sky-400 px-3 py-1 rounded-lg border border-slate-700">Tersedia 2 Kamar</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-xl font-black text-white">Kamar Deluxe AC</h3>
+                                <p class="text-xs text-slate-400 mt-1">Ukuran 3.5x4m • Kenyamanan maksimal dengan pendingin ruangan full dingin.</p>
+                                
+                                <div class="mt-4 flex items-baseline gap-1">
+                                    <span class="text-2xl font-black text-sky-400">Rp 1.350.000</span>
+                                    <span class="text-xs text-slate-400">/ bulan</span>
+                                </div>
+
+                                <ul class="mt-4 space-y-2 text-xs text-slate-200">
+                                    <li class="flex items-center gap-2"><span class="text-sky-400 font-bold">✓</span> Full AC Daikin 0.5 PK Hemat Daya</li>
+                                    <li class="flex items-center gap-2"><span class="text-sky-400 font-bold">✓</span> Kasur Queen Size (160x200) Mewah</li>
+                                    <li class="flex items-center gap-2"><span class="text-sky-400 font-bold">✓</span> Meja Kerja Ergonomis + Rak Buku</li>
+                                    <li class="flex items-center gap-2"><span class="text-sky-400 font-bold">✓</span> Smart TV 32" Android (Netflix Ready)</li>
+                                    <li class="flex items-center gap-2"><span class="text-sky-400 font-bold">✓</span> Kamar Mandi Luar Bersih dengan Water Heater</li>
+                                    <li class="flex items-center gap-2"><span class="text-sky-400 font-bold">✓</span> Cleaning Service Mingguan Gratis</li>
+                                </ul>
+                            </div>
+
+                            <a href="https://wa.me/6281234567890?text=Halo%20Griya%20Kost%20Harmoni,%20saya%20tertarik%20booking%20Kamar%20Deluxe%20AC%20(Rp%201.350.000/bln).%20Apakah%20bisa%20survei%20hari%20ini?" target="_blank" class="w-full py-3 bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-black rounded-xl text-center text-sm shadow-lg shadow-sky-500/25 transition-all flex items-center justify-center gap-2">
+                                <span>💬</span> Booking Kamar Deluxe
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kamar 3: VIP Executive (KM Dalam) -->
+                    <div class="rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 overflow-hidden shadow-xl hover:shadow-2xl transition-all flex flex-col group">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=700&q=80" alt="Kamar VIP Executive" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-slate-900/90 text-xs font-bold text-emerald-400 px-3 py-1 rounded-lg border border-slate-700">Tersedia 1 Kamar</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-xl font-black text-white">VIP Executive (KM Dalam)</h3>
+                                <p class="text-xs text-slate-400 mt-1">Ukuran 4x4.5m • Privasi total dengan kamar mandi dalam &amp; balkon pribadi.</p>
+                                
+                                <div class="mt-4 flex items-baseline gap-1">
+                                    <span class="text-2xl font-black text-amber-400">Rp 1.850.000</span>
+                                    <span class="text-xs text-slate-400">/ bulan</span>
+                                </div>
+
+                                <ul class="mt-4 space-y-2 text-xs text-slate-300">
+                                    <li class="flex items-center gap-2">✓ <strong>Kamar Mandi Dalam + Water Heater Shower</strong></li>
+                                    <li class="flex items-center gap-2">✓ Kulkas Mini Pribadi di Dalam Kamar</li>
+                                    <li class="flex items-center gap-2">✓ Balkon Santai Pribadi Hadap Taman</li>
+                                    <li class="flex items-center gap-2">✓ Full AC Daikin + Smart TV 40"</li>
+                                    <li class="flex items-center gap-2">✓ Lemari 3 Pintu + Meja Rias/Kerja</li>
+                                    <li class="flex items-center gap-2">✓ Gratis Parkir 1 Unit Mobil/Motor</li>
+                                </ul>
+                            </div>
+
+                            <a href="https://wa.me/6281234567890?text=Halo%20Griya%20Kost%20Harmoni,%20saya%20mau%20booking%20Kamar%20VIP%20Executive%20KM%20Dalam%20(Rp%201.850.000/bln).%20Mohon%20info%20jadwal%20survei." target="_blank" class="w-full py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold rounded-xl text-center text-sm transition-all flex items-center justify-center gap-2">
+                                <span>💬</span> Tanya Kamar VIP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Kalkulator Estimasi Biaya Sewa & Deposit Interaktif -->
+        <section id="kalkulator-sewa" class="py-20 bg-slate-950 border-b border-slate-800 relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="inline-block bg-sky-500/10 text-sky-400 border border-sky-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                        Transparan &amp; Otomatis
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">🧮 Kalkulator Estimasi Sewa &amp; Deposit</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2">Pilih tipe kamar &amp; durasi sewa untuk melihat rincian biaya nyata dengan diskon potongan sewa.</p>
+                </div>
+
+                <div class="bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl relative">
+                    <div class="space-y-6 mb-8">
+                        <!-- 1. Pilihan Tipe Kamar -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">1. Pilih Tipe Kamar:</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <label class="p-4 bg-slate-950 rounded-2xl border-2 border-slate-800 hover:border-sky-500 cursor-pointer flex flex-col justify-between transition-all group">
+                                    <div class="flex items-center gap-2.5">
+                                        <input type="radio" name="calc_tipe" value="standar" onchange="hitungTotalKos()" class="text-sky-500 focus:ring-sky-500">
+                                        <span class="font-bold text-sm text-white group-hover:text-sky-400">Standar Cozy</span>
+                                    </div>
+                                    <div class="text-xs text-slate-400 font-semibold mt-3">Rp 850.000 / bln</div>
+                                </label>
+                                <label class="p-4 bg-slate-950 rounded-2xl border-2 border-sky-500 cursor-pointer flex flex-col justify-between transition-all group">
+                                    <div class="flex items-center gap-2.5">
+                                        <input type="radio" name="calc_tipe" value="deluxe" checked onchange="hitungTotalKos()" class="text-sky-500 focus:ring-sky-500">
+                                        <span class="font-bold text-sm text-white text-sky-400">Deluxe AC ⭐</span>
+                                    </div>
+                                    <div class="text-xs text-sky-400 font-semibold mt-3">Rp 1.350.000 / bln</div>
+                                </label>
+                                <label class="p-4 bg-slate-950 rounded-2xl border-2 border-slate-800 hover:border-sky-500 cursor-pointer flex flex-col justify-between transition-all group">
+                                    <div class="flex items-center gap-2.5">
+                                        <input type="radio" name="calc_tipe" value="vip" onchange="hitungTotalKos()" class="text-sky-500 focus:ring-sky-500">
+                                        <span class="font-bold text-sm text-white group-hover:text-sky-400">VIP KM Dalam</span>
+                                    </div>
+                                    <div class="text-xs text-slate-400 font-semibold mt-3">Rp 1.850.000 / bln</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 2. Pilihan Durasi Sewa -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">2. Pilih Durasi Sewa (Dapatkan Diskon Spesial):</label>
+                            <select id="calc_durasi" onchange="hitungTotalKos()" class="w-full p-4 bg-slate-950 border border-slate-700 rounded-2xl text-white font-semibold text-sm focus:ring-2 focus:ring-sky-500 outline-none">
+                                <option value="1">1 Bulan (Harga Normal)</option>
+                                <option value="3">3 Bulan (Diskon Potongan 5%)</option>
+                                <option value="6">6 Bulan (Diskon Potongan 10%)</option>
+                                <option value="12">1 Tahun / 12 Bulan (Diskon Potongan 15% - Hemat Jutaan!)</option>
+                            </select>
+                        </div>
+
+                        <!-- 3. Tambahan Fasilitas Opsional -->
+                        <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800/80">
+                            <label class="flex items-center justify-between cursor-pointer">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" id="calc_parkir" onchange="hitungTotalKos()" class="w-4 h-4 rounded text-sky-500 focus:ring-sky-500">
+                                    <span class="text-xs sm:text-sm font-semibold text-slate-200">🅿️ Tambah Slot Parkir Mobil Berkanopi (+Rp 150.000 / bulan)</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Rincian Biaya Transparan -->
+                    <div class="p-6 bg-slate-950 rounded-2xl border border-sky-500/30 space-y-3">
+                        <div class="flex justify-between text-xs sm:text-sm text-slate-400">
+                            <span>Sewa Kamar (<span id="txt-bulan">1</span> Bulan):</span>
+                            <span id="txt-subtotal" class="font-bold text-white">Rp 1.350.000</span>
+                        </div>
+                        <div class="flex justify-between text-xs sm:text-sm text-slate-400">
+                            <span>Deposit Jaminan Awal (Refundable Saat Checkout):</span>
+                            <span id="txt-deposit" class="font-bold text-white">Rp 300.000</span>
+                        </div>
+                        <div class="flex justify-between text-xs sm:text-sm text-emerald-400 font-bold" id="row-diskon-kos" style="display: none;">
+                            <span>Potongan Diskon Durasi Sewa:</span>
+                            <span id="txt-diskon">- Rp 0</span>
+                        </div>
+                        <div class="flex justify-between text-xs sm:text-sm text-slate-400" id="row-parkir-kos" style="display: none;">
+                            <span>Parkir Mobil:</span>
+                            <span id="txt-parkir">Rp 0</span>
+                        </div>
+
+                        <hr class="border-slate-800 my-2">
+
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase tracking-wider block font-semibold">Total Estimasi Awal:</span>
+                                <span id="txt-grandtotal" class="text-3xl font-black text-amber-400">Rp 1.650.000</span>
+                            </div>
+
+                            <button type="button" onclick="kirimBookingWA()" class="px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl transition-all shadow-lg hover:shadow-emerald-500/20 text-sm flex items-center justify-center gap-2">
+                                <span>💬</span>
+                                <span>Pesan Kamar Ini via WhatsApp ↗</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const hargaKamar = { standar: 850000, deluxe: 1350000, vip: 1850000 };
+                function hitungTotalKos() {
+                    const radios = document.getElementsByName('calc_tipe');
+                    let tipe = 'deluxe';
+                    for (const r of radios) { if (r.checked) tipe = r.value; }
+                    const durasi = parseInt(document.getElementById('calc_durasi').value) || 1;
+                    const parkirChecked = document.getElementById('calc_parkir') && document.getElementById('calc_parkir').checked;
+                    const biayaParkir = parkirChecked ? (150000 * durasi) : 0;
+
+                    const perBulan = hargaKamar[tipe] || 1350000;
+                    const subtotal = perBulan * durasi;
+
+                    let diskonPct = 0;
+                    if (durasi === 3) diskonPct = 0.05;
+                    else if (durasi === 6) diskonPct = 0.10;
+                    else if (durasi === 12) diskonPct = 0.15;
+
+                    const diskon = subtotal * diskonPct;
+                    const deposit = 300000;
+                    const grandTotal = subtotal - diskon + biayaParkir + deposit;
+
+                    document.getElementById('txt-bulan').textContent = durasi;
+                    document.getElementById('txt-subtotal').textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+                    document.getElementById('txt-deposit').textContent = 'Rp ' + deposit.toLocaleString('id-ID');
+
+                    const rowDiskon = document.getElementById('row-diskon-kos');
+                    if (diskon > 0) {
+                        rowDiskon.style.display = 'flex';
+                        document.getElementById('txt-diskon').textContent = '- Rp ' + diskon.toLocaleString('id-ID') + ' (' + (diskonPct * 100) + '%)';
+                    } else {
+                        rowDiskon.style.display = 'none';
+                    }
+
+                    const rowParkir = document.getElementById('row-parkir-kos');
+                    if (biayaParkir > 0) {
+                        rowParkir.style.display = 'flex';
+                        document.getElementById('txt-parkir').textContent = '+ Rp ' + biayaParkir.toLocaleString('id-ID');
+                    } else {
+                        rowParkir.style.display = 'none';
+                    }
+
+                    document.getElementById('txt-grandtotal').textContent = 'Rp ' + grandTotal.toLocaleString('id-ID');
+                }
+
+                function kirimBookingWA() {
+                    const radios = document.getElementsByName('calc_tipe');
+                    let tipe = 'deluxe';
+                    for (const r of radios) { if (r.checked) tipe = r.value; }
+                    const tipeNama = tipe === 'standar' ? 'Standar Cozy' : (tipe === 'deluxe' ? 'Deluxe AC' : 'VIP Executive KM Dalam');
+                    const durasi = document.getElementById('calc_durasi').value;
+                    const grandTotal = document.getElementById('txt-grandtotal').textContent;
+                    const msg = encodeURIComponent(
+                        'Halo Pengelola Griya Kost Harmoni!\n' +
+                        'Saya tertarik booking kamar kost dengan rincian kalkulator:\n' +
+                        '• Tipe Kamar: ' + tipeNama + '\n' +
+                        '• Durasi Sewa: ' + durasi + ' Bulan\n' +
+                        '• Estimasi Total: ' + grandTotal + '\n\n' +
+                        'Apakah unit kamar ini masih tersedia? Kapan saya bisa datang untuk survei langsung? Terima kasih!'
+                    );
+                    window.open('https://wa.me/6281234567890?text=' + msg, '_blank');
+                }
+
+                // Initial calculation
+                setTimeout(hitungTotalKos, 150);
+            </script>
+        </section>
+
+        <!-- Section: Fasilitas Lengkap Bersama -->
+        <section id="fasilitas" class="py-20 bg-slate-900/60 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="inline-block bg-sky-500/10 text-sky-400 border border-sky-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                        Fasilitas Premium
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">Semua Kebutuhan Anda Sudah Tersedia</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2">Didesain khusus untuk menunjang produktivitas belajar, kenyamanan istirahat, dan gaya hidup sehat.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
+                        <div class="text-3xl mb-3">📶</div>
+                        <h4 class="font-bold text-white text-base">WiFi Fiber 100 Mbps</h4>
+                        <p class="text-xs text-slate-400 mt-1">Koneksi internet cepat dedicated di setiap lantai untuk zoom &amp; streaming lancar.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
+                        <div class="text-3xl mb-3">🍳</div>
+                        <h4 class="font-bold text-white text-base">Dapur Bersama Lengkap</h4>
+                        <p class="text-xs text-slate-400 mt-1">Kompor gas, kulkas bersama, microwave, dan wastafel cuci piring bersih.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
+                        <div class="text-3xl mb-3">💧</div>
+                        <h4 class="font-bold text-white text-base">Air Minum RO Gratis</h4>
+                        <p class="text-xs text-slate-400 mt-1">Dispenser air panas, dingin, dan netral gratis sepuasnya tanpa beli galon.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
+                        <div class="text-3xl mb-3">🧺</div>
+                        <h4 class="font-bold text-white text-base">Mesin Cuci &amp; Jemuran</h4>
+                        <p class="text-xs text-slate-400 mt-1">Mesin cuci otomatis dan area jemur pakaian luas di lantai rooftop.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
+                        <div class="text-3xl mb-3">🅿️</div>
+                        <h4 class="font-bold text-white text-base">Parkir Luas Berkanopi</h4>
+                        <p class="text-xs text-slate-400 mt-1">Area parkir motor &amp; mobil berpagar tinggi terlindung dari hujan dan panas.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
+                        <div class="text-3xl mb-3">🔒</div>
+                        <h4 class="font-bold text-white text-base">Kartu Akses &amp; CCTV 24 Jam</h4>
+                        <p class="text-xs text-slate-400 mt-1">Akses gerbang utama menggunakan smart card RFID dan 16 titik CCTV aktif.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
+                        <div class="text-3xl mb-3">🛋️</div>
+                        <h4 class="font-bold text-white text-base">Ruang Tamu &amp; Santai</h4>
+                        <p class="text-xs text-slate-400 mt-1">Lounge nyaman ber-AC untuk menerima teman, keluarga, atau belajar kelompok.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
+                        <div class="text-3xl mb-3">🧹</div>
+                        <h4 class="font-bold text-white text-base">Cleaning Service Rutin</h4>
+                        <p class="text-xs text-slate-400 mt-1">Pembersihan lorong, dapur bersama, dan pembuangan sampah setiap pagi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Lokasi Strategis & Peta Interaktif -->
+        <section id="lokasi" class="py-20 bg-slate-950 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="inline-block bg-sky-500/10 text-sky-400 border border-sky-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                        Akses Super Mudah
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">Lokasi Emas Dekat Kampus &amp; Transportasi</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2">Dikelilingi warung makan, cafe tempat nugas, apotek, dan minimarket 24 jam.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                    <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl text-center">
+                        <div class="text-3xl mb-2">🎓</div>
+                        <div class="font-black text-amber-400 text-xl">3 Menit</div>
+                        <div class="text-xs text-slate-300 font-semibold mt-1">Ke Gerbang Utama Kampus</div>
+                    </div>
+                    <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl text-center">
+                        <div class="text-3xl mb-2">🚆</div>
+                        <div class="font-black text-sky-400 text-xl">7 Menit</div>
+                        <div class="text-xs text-slate-300 font-semibold mt-1">Ke Stasiun KRL &amp; Halte Busway</div>
+                    </div>
+                    <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl text-center">
+                        <div class="text-3xl mb-2">🛒</div>
+                        <div class="font-black text-emerald-400 text-xl">100 Meter</div>
+                        <div class="text-xs text-slate-300 font-semibold mt-1">Minimarket 24 Jam &amp; ATM Center</div>
+                    </div>
+                    <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl text-center">
+                        <div class="text-3xl mb-2">🏥</div>
+                        <div class="font-black text-rose-400 text-xl">5 Menit</div>
+                        <div class="text-xs text-slate-300 font-semibold mt-1">Ke Rumah Sakit &amp; Klinik Medis</div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-2 text-center md:text-left">
+                        <h4 class="text-xl font-bold text-white flex items-center justify-center md:justify-start gap-2">
+                            <span>📍</span> Alamat Lengkap Griya Kost Harmoni
+                        </h4>
+                        <p class="text-sm text-slate-400 max-w-xl">
+                            Jl. Cempaka Harmoni No. 45 (Masuk gang lebar 6 meter, muat 2 mobil papasan). Tenang, tidak bising suara jalan raya, lingkungan asri dan aman.
+                        </p>
+                    </div>
+
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-sky-500/20 text-sm whitespace-nowrap flex items-center gap-2">
+                        <span>Buka Petunjuk Arah di Google Maps</span> ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Testimoni Penghuni Real -->
+        <section id="testimoni" class="py-20 bg-slate-900/60 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                        Ulasan Penghuni
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">Apa Kata Mereka yang Tinggal di Sini?</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2">Kepuasan, ketenangan, dan kenyamanan Anda adalah prioritas utama pengelola.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Testimoni 1 -->
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">
+                            "Sudah 1 tahun ngekost di sini. Kamarnya kedap suara, AC dingin banget dan WiFi-nya kencang stabil buat nugas skripsi dan Zoom meeting tiap hari tanpa putus. Pengelolanya juga ramah dan tanggap!"
+                        </p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <div class="w-10 h-10 rounded-full bg-sky-600 flex items-center justify-center font-bold text-white text-sm">RA</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm leading-tight">Rifqi Andika</h4>
+                                <span class="text-[11px] text-slate-400">Mahasiswa Kedokteran • Kamar Deluxe AC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimoni 2 -->
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">
+                            "Keamanannya jempolan karena pakai kartu akses RFID dan gerbang selalu terkunci otomatis. Dapur bersamanya bersih, dispenser air minum gratis bikin hemat pengeluaran bulanan. Recommended!"
+                        </p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white text-sm">SP</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm leading-tight">Salsabila Putri</h4>
+                                <span class="text-[11px] text-slate-400">UI/UX Designer WFH • Kamar VIP KM Dalam</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimoni 3 -->
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">
+                            "Jalan kaki ke kampus cuma 3 menit beneran! Gak pernah kejebak macet pagi hari. Parkiran motor berkanopi rapi dan ada cleaning service yang rajin bersihin area umum. Betah banget!"
+                        </p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white text-sm">BW</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm leading-tight">Bima Wijaya</h4>
+                                <span class="text-[11px] text-slate-400">Mahasiswa Teknik Sipil • Kamar Standar Cozy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Tanya Jawab (FAQ Accordion) -->
+        <section id="faq" class="py-20 bg-slate-950 border-b border-slate-800">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-black text-white">❓ Pertanyaan Sering Diajukan (FAQ)</h2>
+                    <p class="text-slate-400 text-sm mt-2">Segala hal yang perlu Anda ketahui sebelum memilih Griya Kost Harmoni.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-5 cursor-pointer group">
+                        <summary class="font-bold text-white flex justify-between items-center group-hover:text-sky-400 transition-colors">
+                            <span>Apakah ada batasan jam malam untuk penghuni?</span>
+                            <span class="text-slate-500 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+                            Tidak ada batasan jam malam! Setiap penghuni diberikan kartu akses RFID pribadi untuk membuka pintu gerbang 24 jam sehingga Anda bebas beraktivitas kapan pun secara mandiri dan aman.
+                        </p>
+                    </details>
+
+                    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-5 cursor-pointer group">
+                        <summary class="font-bold text-white flex justify-between items-center group-hover:text-sky-400 transition-colors">
+                            <span>Apakah biaya sewa sudah termasuk listrik dan air?</span>
+                            <span class="text-slate-500 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+                            Biaya air PDAM bersih, WiFi 100 Mbps, dan iuran sampah sudah <strong>GRATIS (termasuk)</strong>. Untuk listrik menggunakan meteran token mandiri per kamar agar pemakaian adil dan terkontrol sesuai kebutuhan masing-masing.
+                        </p>
+                    </details>
+
+                    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-5 cursor-pointer group">
+                        <summary class="font-bold text-white flex justify-between items-center group-hover:text-sky-400 transition-colors">
+                            <span>Bagaimana cara menjadwalkan survei kamar langsung?</span>
+                            <span class="text-slate-500 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+                            Sangat mudah! Anda cukup klik tombol WhatsApp di website ini dan tentukan hari serta jam kedatangan Anda. Pengelola kami standby setiap hari mulai pukul 08:00 hingga 20:00 WIB untuk menemani Anda melihat kamar.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final Banner -->
+        <section class="py-16 bg-gradient-to-r from-sky-900/60 to-indigo-900/60 border-b border-slate-800 relative">
+            <div class="max-w-4xl mx-auto px-4 text-center space-y-6">
+                <h2 class="text-3xl sm:text-4xl font-black text-white">Siap Mendapatkan Kamar Impian Anda?</h2>
+                <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
+                    Kamar di Griya Kost Harmoni cepat terisi setiap awal semester. Hubungi kami sekarang dan amankan unit kamar Anda sebelum kehabisan!
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Pengelola%20Griya%20Kost%20Harmoni,%20saya%20mau%20survei%20kamar%20hari%20ini" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl text-base shadow-xl shadow-emerald-500/20 transition-all flex items-center justify-center gap-2">
+                        <span>💬</span> Chat WhatsApp Pengelola Sekarang
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 border-t border-slate-800 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="text-xl">🏡</span>
+                <span class="font-bold text-white text-sm">Griya Kost Harmoni</span>
+                <span>— Hunian Kost Eksklusif, Aman &amp; Nyaman</span>
+            </div>
+            <div>
+                &copy; 2026 Griya Kost Harmoni. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
