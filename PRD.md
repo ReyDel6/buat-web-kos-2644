@@ -389,3 +389,77 @@ Fitur "Filter Katalog Kamar Kos" dirancang untuk memungkinkan calon penyewa (Per
     *   Untuk *landing page* yang ringan dan cepat, *client-side filtering* (memuat semua data kamar di awal dan menyaringnya dengan JavaScript) akan menjadi prioritas untuk performa terbaik, terutama jika jumlah kamar tidak terlalu banyak (<50 kamar).
     *   Jika jumlah kamar sangat banyak atau akan ada fitur pencarian yang lebih kompleks di masa depan, pertimbangan untuk integrasi API *endpoint* dengan parameter filter akan diperlukan.
 *   **Aksesibilitas:** Memastikan elemen filter dapat diakses dan digunakan oleh pengguna dengan berbagai kebutuhan, termasuk navigasi keyboard dan dukungan *screen reader*.
+
+---
+
+Tentu, sebagai Arka, Lead Product Architect, saya akan menambahkan bab baru untuk mencatat revisi dan penambahan fitur Virtual Tour 360 derajat ke dalam PRD "Griya Kost Harmoni". Ini adalah langkah yang sangat baik untuk meningkatkan transparansi dan pengalaman calon penyewa.
+
+---
+
+Berikut adalah penambahan bab baru dalam format Markdown:
+
+```markdown
+---
+
+## Changelog & Spesifikasi Fitur Baru (Iterasi Pengembangan)
+
+### 1. Deskripsi Fitur Baru: Virtual Tour 360 Derajat Kamar
+
+Fitur "Virtual Tour 360 Derajat Kamar" akan memberikan pengalaman imersif bagi calon penyewa untuk menjelajahi interior kamar kos secara virtual. Dengan fitur ini, pengguna dapat melihat setiap sudut kamar, fasilitas, dan tata letak ruangan secara interaktif, seolah-olah mereka berada langsung di dalam kamar tersebut. Tujuan utama fitur ini adalah untuk:
+
+*   **Meningkatkan Transparansi:** Memberikan gambaran yang sangat jelas mengenai kondisi kamar, mengurangi keraguan calon penyewa.
+*   **Mengurangi Waktu Survei Fisik:** Calon penyewa dapat melakukan "pra-survei" dari rumah, sehingga hanya yang benar-benar tertarik yang akan menjadwalkan kunjungan fisik.
+*   **Meningkatkan Konversi:** Pengalaman yang lebih kaya dan transparan akan membangun kepercayaan dan mempercepat keputusan penyewaan.
+*   **Diferensiasi Kompetitif:** Menawarkan keunggulan modern dibandingkan dengan kompetitor yang hanya menyediakan foto statis.
+
+Fitur ini akan diintegrasikan secara mulus ke dalam halaman detail setiap kamar, melengkapi galeri foto dan deskripsi yang sudah ada.
+
+### 2. Alur Pengguna (User Flow)
+
+#### A. Alur Pengguna: Pencari Kos (Siska)
+
+1.  **Akses Website:** Siska membuka website "Griya Kost Harmoni" melalui *smartphone* atau *desktop*.
+2.  **Jelajah Katalog:** Siska menelusuri daftar kamar yang tersedia di bagian "Showcase / Katalog Kamar".
+3.  **Pilih Kamar:** Siska tertarik pada salah satu kamar dan mengklik untuk melihat detail lebih lanjut.
+4.  **Lihat Detail Kamar:** Pada halaman detail kamar, Siska melihat foto-foto, deskripsi, fasilitas, dan harga.
+5.  **Akses Virtual Tour:** Siska menemukan tombol atau tautan yang menonjol berlabel **"Lihat Virtual Tour 360°"** atau ikon yang relevan, biasanya ditempatkan di dekat galeri foto atau di bagian atas deskripsi.
+6.  **Interaksi Virtual Tour:** Siska mengklik tombol/tautan tersebut. Sebuah *modal* atau bagian baru akan terbuka, menampilkan antarmuka *viewer* 360 derajat. Siska dapat menggeser (pan), memperbesar (zoom), dan menjelajahi seluruh sudut kamar secara interaktif menggunakan *touch gesture* (di *smartphone*) atau *mouse* (di *desktop*).
+7.  **Tindakan Lanjut:** Setelah selesai menjelajahi, Siska dapat menutup *modal* virtual tour dan melanjutkan untuk menghubungi pemilik via WhatsApp ("Hubungi via WhatsApp") atau kembali ke daftar kamar.
+
+#### B. Alur Pengelola: Pemilik Kos / ReyDev Admin (Pak Budi)
+
+1.  **Persiapan Konten:** Pak Budi menyediakan file gambar panorama 360 derajat (atau ReyDev membantu dalam proses ini jika layanan *content creation* termasuk).
+2.  **Upload & Link:** Melalui panel administrasi yang disediakan oleh ReyDev (atau dibantu oleh tim ReyDev), file gambar 360 derajat diunggah dan ditautkan ke kamar kos yang sesuai.
+3.  **Publikasi:** Setelah ditautkan, fitur virtual tour akan otomatis muncul di halaman detail kamar yang relevan di *frontend* website.
+
+### 3. Komponen Teknis yang Ditambahkan/Diubah
+
+Untuk mengimplementasikan fitur Virtual Tour 360 Derajat, beberapa komponen teknis akan ditambahkan atau diubah:
+
+#### 3.1. Front-end (UI/UX)
+
+*   **Tombol/Link Virtual Tour:** Penambahan elemen UI (tombol atau ikon) di halaman detail kamar untuk memicu tampilan virtual tour.
+*   **360° Viewer Component:** Integrasi pustaka JavaScript atau komponen UI yang mampu merender dan menginteraksi dengan gambar panorama 360 derajat (misalnya: Three.js, A-Frame, React VR, atau solusi *embed* dari platform 360° tour pihak ketiga).
+*   **Modal/Overlay Component:** Untuk menampilkan *viewer* 360 derajat secara *pop-up* tanpa meninggalkan halaman detail kamar.
+*   **Optimasi Performa:** Implementasi *lazy loading* untuk aset gambar 360 derajat (yang cenderung berukuran besar) agar tidak membebani waktu *load* halaman utama. Responsi terhadap berbagai ukuran layar (*mobile-first*).
+
+#### 3.2. Back-end & Data Model
+
+*   **Database Schema Update:** Penambahan kolom baru pada entitas `Kamar` (Room) untuk menyimpan URL atau ID unik dari file panorama 360 derajat (misal: `virtual_tour_url` tipe `STRING`).
+*   **API Endpoint Modification:** API yang melayani detail kamar akan diperbarui untuk menyertakan `virtual_tour_url` sebagai bagian dari respons data.
+*   **Content Management System (CMS) / Admin Interface:**
+    *   Penambahan bidang input di panel admin ReyDev untuk memungkinkan pengelola (atau tim ReyDev) mengunggah atau menautkan URL file gambar 360 derajat ke kamar tertentu.
+    *   Validasi format file (misal: JPG/PNG equirectangular) dan ukuran file.
+
+#### 3.3. Infrastruktur & Penyimpanan
+
+*   **Penyimpanan Aset Digital (CDN/Cloud Storage):** File gambar panorama 360 derajat akan disimpan di layanan penyimpanan *cloud* yang dioptimalkan untuk pengiriman konten cepat (misal: Google Cloud Storage, AWS S3) dan disajikan melalui CDN (Content Delivery Network) untuk performa global yang optimal.
+*   **Bandwidth:** Mempertimbangkan peningkatan kebutuhan *bandwidth* karena ukuran file gambar 360 derajat yang lebih besar.
+
+#### 3.4. Proses Konten
+
+*   **Panduan Pembuatan Konten:** ReyDev perlu menyediakan panduan atau rekomendasi spesifikasi teknis untuk pembuatan gambar panorama 360 derajat yang optimal (resolusi, format, dll.) kepada Pak Budi.
+*   **Proses Upload & Review:** Menetapkan proses yang jelas untuk mengunggah, menautkan, dan meninjau konten virtual tour sebelum dipublikasikan.
+
+---
+```
